@@ -30,10 +30,11 @@ function card(color,value){
 }
 
 //deck constructor
-function deck(divId){
+function deck(divId, hidden){
     this.cards = [];
     this.amtCards = 0;
     this.hand = document.getElementById(divId);
+    this.isHidden = hidden;
     
     // Adds a card to the cards array
     this.addCard = function(c){
@@ -88,9 +89,15 @@ function deck(divId){
         for( i = 0; i < this.amtCards; i++){
             let cardDiv = document.createElement('div');
             this.hand.append(cardDiv);
-            cardDiv.innerHTML = this.getCard(i).value;
             cardDiv.classList.add('card');
-            cardDiv.style.backgroundColor = this.getCard(i).getColorValue();
+            
+            if(!this.isHidden){
+                cardDiv.innerHTML = this.getCard(i).value;
+                cardDiv.style.backgroundColor = this.getCard(i).getColorValue();
+            }else{
+                cardDiv.style.backgroundColor = "#000000"
+            }
+            
         }
     };
     
@@ -171,7 +178,7 @@ function initializeWindow()
     divValue.innerHTML = playFieldCard.value;
     
     //Creates a deck for player
-    myDeck = new deck("playerHand");
+    myDeck = new deck("playerHand", false);
     
     //Automatically gives the player 7 cards
     let i = 0;

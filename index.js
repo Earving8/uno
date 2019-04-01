@@ -30,9 +30,10 @@ function card(color,value){
 }
 
 //deck constructor
-function deck(){
+function deck(divId){
     this.cards = [];
     this.amtCards = 0;
+    this.hand = document.getElementById(divId);
     
     // Adds a card to the cards array
     this.addCard = function(c){
@@ -82,12 +83,11 @@ function deck(){
     
     //Reloads the player hand to have the most recent cards in player hand
     this.reloadHand = function(){
-        let hand = document.getElementById('playerHand');
-        hand.innerHTML = "";
+        this.hand.innerHTML = "";
         let i = 0;
         for( i = 0; i < this.amtCards; i++){
             let cardDiv = document.createElement('div');
-            hand.append(cardDiv);
+            this.hand.append(cardDiv);
             cardDiv.innerHTML = this.getCard(i).value;
             cardDiv.classList.add('card');
             cardDiv.style.backgroundColor = this.getCard(i).getColorValue();
@@ -171,7 +171,7 @@ function initializeWindow()
     divValue.innerHTML = playFieldCard.value;
     
     //Creates a deck for player
-    myDeck = new deck;
+    myDeck = new deck("playerHand");
     
     //Automatically gives the player 7 cards
     let i = 0;

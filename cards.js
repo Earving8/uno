@@ -75,20 +75,18 @@ function deck(divId, hidden) {
   this.playCard = function (c) {
     if (this.isValid(c)) {
       //Check if second to last card & Uno call protection
-      if (players[gameTurn].playerDeck.amtCards == 2 && players[gameTurn].unoCall != true)
-      {
+      if (players[gameTurn].playerDeck.amtCards == 2 && players[gameTurn].unoCall != true) {
         console.log("Player failed to call Uno before playing second to last card. Penalty 2 cards");
         players[gameTurn].playerDeck.drawCard();
         players[gameTurn].playerDeck.drawCard();
       }
-      else
-      {
+      else {
         console.log("Player called Uno");
       }
       console.log(this.getCard(c).color + " " + this.getCard(c).value);
 
       let cardBeingPlayed = this.cards[c];
-        
+
       //Set playfield card to validated 'played' card
       playFieldCard.color = cardBeingPlayed.color;
       playFieldCard.value = cardBeingPlayed.value;
@@ -144,12 +142,73 @@ function deck(divId, hidden) {
       let cardDiv = document.createElement("div");
       this.hand.append(cardDiv);
       cardDiv.classList.add("card");
+
+      let cardSpan = document.createElement("span");
+      cardDiv.append(cardSpan);
+      cardSpan.classList.add("inner");
+
+      let cardSpanInner = document.createElement("span");
+      cardSpan.append(cardSpanInner);
+      cardSpanInner.classList.add("mark");
+
+      cardDiv.append()
       if (!this.isHidden) {
-        cardDiv.innerHTML = this.getCard(i).value;
-        cardDiv.style.backgroundColor = this.getCard(i).getColorValue();
+        switch (this.getCard(i).value) {
+          case 0:
+            cardDiv.classList.add('num-0');
+            cardSpanInner.append("0");
+            break;
+          case 1:
+            cardDiv.classList.add('num-1');
+            cardSpanInner.append("1");
+            break;
+          case 2:
+            cardDiv.classList.add('num-2');
+            cardSpanInner.append("2");
+            break;
+          case 3:
+            cardDiv.classList.add('num-3');
+            cardSpanInner.append("3");
+            break;
+          case 4:
+            cardDiv.classList.add('num-4');
+            cardSpanInner.append("4");
+            break;
+          case 5:
+            cardDiv.classList.add('num-5');
+            cardSpanInner.append("5");
+            break;
+          case 6:
+            cardDiv.classList.add('num-6');
+            cardSpanInner.append("6");
+            break;
+          case 7:
+            cardDiv.classList.add('num-7');
+            cardSpanInner.append("7");
+            break;
+          case 8:
+            cardDiv.classList.add('num-8');
+            cardSpanInner.append("8");
+            break;
+          case 9:
+            cardDiv.classList.add('num-9');
+            cardSpanInner.append("9");
+        }
         cardDiv.classList.add('my-card');
+        if (this.getCard(i).getColorValue() == "#0000FF") {
+          cardDiv.classList.add("blue");
+        }
+        if (this.getCard(i).getColorValue() == "#A60000") {
+          cardDiv.classList.add("red");
+        }
+        if (this.getCard(i).getColorValue() == "#004f19") {
+          cardDiv.classList.add("green");
+        }
+        if (this.getCard(i).getColorValue() == "#e5bf00") {
+          cardDiv.classList.add("yellow");
+        }
       } else {
-         cardDiv.style.backgroundColor = "#000000";
+        cardDiv.style.backgroundColor = "#000000";
       }
     }
   };

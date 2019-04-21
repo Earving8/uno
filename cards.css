@@ -275,16 +275,6 @@
   position:relative;
 }
 
-.card .mark2{
-  display:inline-block;
-  vertical-align:middle;
-  background:#ffffff;
-  margin:auto;
-  padding:0 26px;
-  border-radius:100px 60px / 120px 60px;
-  line-height:1.4;
-}
-
 .cardsInInnerPlus2 {
   width:26px;height:44px;float:left;
   background:#000;

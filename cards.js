@@ -193,6 +193,39 @@ function deck(divId, hidden) {
           case 9:
             cardDiv.classList.add('num-9');
             cardSpanInner.append("9");
+            break;
+          case 10:
+            // Draw 2
+            cardDiv.classList.add('draw2');
+            cardSpanInner.append("&nbsp&nbsp&nbsp");
+
+            // // first inner card drawing
+            // let specialClassDiv = document.createElement("div");
+            // cardSpanInner.append(specialClassDiv);
+            // specialClassDiv.classList.add("cardsInInnerPlus2");
+            // specialClassDiv.classList.add("card-plus2-green blue");
+
+            // let evenInnerSpan = document.createElement("span");
+            // specialClassDiv.append(evenInnerSpan);
+            // evenInnerSpan.classList.add("inner");
+
+            // // second inner card drawing
+            // let specialClassDiv2 = document.createElement("div");
+            // cardSpanInner2.append(specialClassDiv2);
+            // specialClassDiv2.classList.add("cardsInInnerPlus2");
+            // specialClassDiv2.classList.add("card-plus2-blue blue");
+
+            // let evenInnerSpan2 = document.createElement("span");
+            // specialClassDiv2.append(evenInnerSpan2);
+            // evenInnerSpan2.classList.add("inner");
+
+            break;
+          case 11:
+            // Reverse
+            break;
+          case 12:
+            // Skip
+            break;
         }
         cardDiv.classList.add('my-card');
         if (this.getCard(i).getColorValue() == "#0000FF") {

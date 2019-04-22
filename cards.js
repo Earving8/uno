@@ -226,6 +226,37 @@ function deck(divId, hidden) {
             break;
           case 11:
             // Reverse
+            cardDiv.classList.add("reverse");
+            cardSpanInner.append("_"); // how to insert space here?
+
+            // // left arrow drawing
+            // let specialClassDiv = document.createElement("div");
+            // cardSpanInner.append(specialClassDiv);
+            // specialClassDiv.classList.add("left-arrow-container");
+            // let innerSpecialClassDiv = document.createElement("div");
+            // specialClassDiv.append(innerSpecialClassDiv);
+            // innerSpecialClassDiv.classList.add("arrow-body");
+
+            // let evenInnerSpan = document.createElement("span");
+            // innerSpecialClassDiv.append(evenInnerSpan);
+            // evenInnerSpan.classList.add("arrow-head");
+
+            // // right arrow drawing
+            // let specialClassDiv2 = document.createElement("div");
+            // cardSpanInner.append(specialClassDiv);
+            // specialClassDiv2.classList.add("right-arrow-container");
+            // let innerSpecialClassDiv = document.createElement("div");
+            // specialClassDiv2.append(innerSpecialClassDiv);
+            // innerSpecialClassDiv.classList.add("arrow-body2");
+
+            // let evenInnerSpan = document.createElement("span");
+            // innerSpecialClassDiv.append(evenInnerSpan);
+            // evenInnerSpan.classList.add("arrow-head");
+
+            // // final span
+            // let finalSpan = document.createElement("span");
+            // cardSpanInner.append(finalSpan);
+
             break;
           case 12:
             // Skip

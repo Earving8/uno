@@ -1,6 +1,6 @@
-$(document).ready(function () {
-  $(document).on("click", ".card", function () {
-    let cardIndex = $('.my-card').index(this);
+$(document).ready(function() {
+  $(document).on("click", ".card", function() {
+    let cardIndex = $(".my-card").index(this);
     console.log("index: " + cardIndex);
     useCard(cardIndex);
   });
@@ -66,7 +66,7 @@ function initializePlayers() {
 
     let isBot = false;
     if (players.length != 0 || tempID == "Bot") {
-      tempID = "Bot"
+      tempID = "Bot";
       isBot = true;
     }
 
@@ -91,32 +91,28 @@ function initializePlayers() {
   play();
 }
 
-
-function startGame(){
+function startGame() {
   let playerNameInput = document.getElementById("playerName");
   let playerName = playerNameInput.value;
   playerNameInput.classList.remove("is-valid");
-  if(playerName.length == 0){
-     playerNameInput.classList.add("is-invalid");
+  if (playerName.length == 0) {
+    playerNameInput.classList.add("is-invalid");
     return;
   }
-    document.getElementById("setupGame").classList.add("d-none");
-    document.getElementById("playingField").classList.remove("d-none");
-    let playerAmtDiv = document.getElementById("amtPlayers");
-    let playerAmt = playerAmtDiv.options[playerAmtDiv.selectedIndex].value;
-    amtPlayers = playerAmt;
-    initializeWindow();
-    initializePlayers();
+  document.getElementById("setupGame").classList.add("d-none");
+  document.getElementById("playingField").classList.remove("d-none");
+  let playerAmtDiv = document.getElementById("amtPlayers");
+  let playerAmt = playerAmtDiv.options[playerAmtDiv.selectedIndex].value;
+  amtPlayers = playerAmt;
+  initializeWindow();
+  initializePlayers();
 }
-
-
-
 
 /**
  * Play
  */
 function play() {
-  setTimeout(function () {
+  setTimeout(function() {
     if (players[gameTurn].isBot) {
       players[gameTurn].botLogic();
     }
@@ -126,21 +122,18 @@ function play() {
 /**
  * Player's uno call button. Must be pressed BEFORE playing second to last card
  */
-function callUno(){
+function callUno() {
   console.log("Amt of cards: " + players[gameTurn].playerDeck.amtCards);
-  if (players[gameTurn].playerDeck.amtCards > 2)
-  {
+  if (players[gameTurn].playerDeck.amtCards > 2) {
     console.log("Player called Uno too early");
-  }
-  else
-  {
+  } else {
     console.log("Successful Uno call protection");
     players[gameTurn].unoCall = true;
   }
 }
 
 //for debug
-function checkUno(){
+function checkUno() {
   console.log("Unocall: " + players[gameTurn].unoCall);
 }
 

@@ -256,8 +256,22 @@ function deck(divId, hidden) {
             break;
           case 12:
             // Skip
+            cardDiv.classList.add("skip");
+            cardSpanInner.append("_"); // how to insert space here?
+
+            // first inner card drawing
+            let zspecialClassDiv = document.createElement("div");
+            cardSpanInner.append(zspecialClassDiv);
+            zspecialClassDiv.classList.add("cardsInInnerSkip");
+            zspecialClassDiv.classList.add("no-symbol");
+
+            let zevenInnerSpan = document.createElement("span");
+            zspecialClassDiv.append(zevenInnerSpan);
+            zevenInnerSpan.classList.add("inner");
+
             break;
         }
+
         cardDiv.classList.add("my-card");
         if (this.getCard(i).getColorValue() == "#0000FF") {
           cardDiv.classList.add("blue");

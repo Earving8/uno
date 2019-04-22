@@ -6,7 +6,7 @@
 function card(color, value) {
   this.color = color;
   this.value = value;
-  this.getColorValue = function () {
+  this.getColorValue = function() {
     if (this.color == "Red") {
       return "#A60000";
     } else if (this.color == "Blue") {
@@ -35,7 +35,7 @@ function deck(divId, hidden) {
   /**
    * Adds a card to the cards array
    */
-  this.addCard = function (c) {
+  this.addCard = function(c) {
     this.cards.push(c);
     this.amtCards = this.cards.length;
   };
@@ -43,7 +43,7 @@ function deck(divId, hidden) {
   /**
    * removes a card from card array
    */
-  this.removeCard = function (c) {
+  this.removeCard = function(c) {
     this.cards.splice(c, 1);
     this.amtCards = this.cards.length;
   };
@@ -51,7 +51,7 @@ function deck(divId, hidden) {
   /**
    * Gives player a random card
    */
-  this.drawCard = function () {
+  this.drawCard = function() {
     let colorArray = ["Red", "Green", "Blue", "Yellow", "Special"];
     let randColor = colorArray[Math.floor(Math.random() * colorArray.length)];
     let randValue = Math.floor(Math.random() * 13);
@@ -72,15 +72,19 @@ function deck(divId, hidden) {
   /**
    * removes card from hand and reloads hand (post-validation of good move)
    */
-  this.playCard = function (c) {
+  this.playCard = function(c) {
     if (this.isValid(c)) {
       //Check if second to last card & Uno call protection
-      if (players[gameTurn].playerDeck.amtCards == 2 && players[gameTurn].unoCall != true) {
-        console.log("Player failed to call Uno before playing second to last card. Penalty 2 cards");
+      if (
+        players[gameTurn].playerDeck.amtCards == 2 &&
+        players[gameTurn].unoCall != true
+      ) {
+        console.log(
+          "Player failed to call Uno before playing second to last card. Penalty 2 cards"
+        );
         players[gameTurn].playerDeck.drawCard();
         players[gameTurn].playerDeck.drawCard();
-      }
-      else {
+      } else {
         console.log("Player called Uno");
       }
       console.log(this.getCard(c).color + " " + this.getCard(c).value);
@@ -128,14 +132,14 @@ function deck(divId, hidden) {
   /**
    * Returns card at index c
    */
-  this.getCard = function (c) {
+  this.getCard = function(c) {
     return this.cards[c];
   };
 
   /**
    * Reloads the player hand to have the most recent cards in player hand
    */
-  this.reloadHand = function () {
+  this.reloadHand = function() {
     this.hand.innerHTML = "";
     let i = 0;
     for (i = 0; i < this.amtCards; i++) {
@@ -151,73 +155,73 @@ function deck(divId, hidden) {
       cardSpan.append(cardSpanInner);
       cardSpanInner.classList.add("mark");
 
-      cardDiv.append()
+      cardDiv.append();
       if (!this.isHidden) {
         switch (this.getCard(i).value) {
           case 0:
-            cardDiv.classList.add('num-0');
+            cardDiv.classList.add("num-0");
             cardSpanInner.append("0");
             break;
           case 1:
-            cardDiv.classList.add('num-1');
+            cardDiv.classList.add("num-1");
             cardSpanInner.append("1");
             break;
           case 2:
-            cardDiv.classList.add('num-2');
+            cardDiv.classList.add("num-2");
             cardSpanInner.append("2");
             break;
           case 3:
-            cardDiv.classList.add('num-3');
+            cardDiv.classList.add("num-3");
             cardSpanInner.append("3");
             break;
           case 4:
-            cardDiv.classList.add('num-4');
+            cardDiv.classList.add("num-4");
             cardSpanInner.append("4");
             break;
           case 5:
-            cardDiv.classList.add('num-5');
+            cardDiv.classList.add("num-5");
             cardSpanInner.append("5");
             break;
           case 6:
-            cardDiv.classList.add('num-6');
+            cardDiv.classList.add("num-6");
             cardSpanInner.append("6");
             break;
           case 7:
-            cardDiv.classList.add('num-7');
+            cardDiv.classList.add("num-7");
             cardSpanInner.append("7");
             break;
           case 8:
-            cardDiv.classList.add('num-8');
+            cardDiv.classList.add("num-8");
             cardSpanInner.append("8");
             break;
           case 9:
-            cardDiv.classList.add('num-9');
+            cardDiv.classList.add("num-9");
             cardSpanInner.append("9");
             break;
           case 10:
             // Draw 2
-            cardDiv.classList.add('draw2');
-            cardSpanInner.append("&nbsp&nbsp&nbsp");
+            cardDiv.classList.add("draw2");
+            cardSpanInner.append("_"); // how to insert space here?
 
-            // // first inner card drawing
-            // let specialClassDiv = document.createElement("div");
-            // cardSpanInner.append(specialClassDiv);
-            // specialClassDiv.classList.add("cardsInInnerPlus2");
-            // specialClassDiv.classList.add("card-plus2-green blue");
+            // first inner card drawing
+            let specialClassDiv = document.createElement("div");
+            cardSpanInner.append(specialClassDiv);
+            specialClassDiv.classList.add("cardsInInnerPlus2");
+            specialClassDiv.classList.add("card-plus2-bottom-left");
 
-            // let evenInnerSpan = document.createElement("span");
-            // specialClassDiv.append(evenInnerSpan);
-            // evenInnerSpan.classList.add("inner");
+            let evenInnerSpan = document.createElement("span");
+            specialClassDiv.append(evenInnerSpan);
+            evenInnerSpan.classList.add("inner");
 
-            // // second inner card drawing
-            // let specialClassDiv2 = document.createElement("div");
-            // cardSpanInner2.append(specialClassDiv2);
-            // specialClassDiv2.classList.add("cardsInInnerPlus2");
-            // specialClassDiv2.classList.add("card-plus2-blue blue");
+            // second inner card drawing
+            let specialClassDiv2 = document.createElement("div");
+            cardSpanInner.append(specialClassDiv2);
+            specialClassDiv2.classList.add("cardsInInnerPlus2");
+            specialClassDiv2.classList.add("card-plus2-top-right");
 
-            // let evenInnerSpan2 = document.createElement("span");
-            // specialClassDiv2.append(evenInnerSpan2);
-            // evenInnerSpan2.classList.add("inner");
+            let evenInnerSpan2 = document.createElement("span");
+            specialClassDiv2.append(evenInnerSpan2);
+            evenInnerSpan2.classList.add("inner");
 
             break;
           case 11:
@@ -227,7 +231,7 @@ function deck(divId, hidden) {
             // Skip
             break;
         }
-        cardDiv.classList.add('my-card');
+        cardDiv.classList.add("my-card");
         if (this.getCard(i).getColorValue() == "#0000FF") {
           cardDiv.classList.add("blue");
         }
@@ -247,7 +251,7 @@ function deck(divId, hidden) {
   };
 
   //Compare selected card to playfield card
-  this.isValid = function (c) {
+  this.isValid = function(c) {
     //Get in the value by element ID
     let cardColor = this.cards[c].color;
     let cardNumber = this.cards[c].value;
@@ -272,7 +276,7 @@ function deck(divId, hidden) {
     return false;
   }; //end of check card to playfield
 
-  this.cardInvalid = function () {
+  this.cardInvalid = function() {
     let audio = new Audio("error.mp3");
     audio.play();
   };

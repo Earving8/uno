@@ -229,33 +229,29 @@ function deck(divId, hidden) {
             cardDiv.classList.add("reverse");
             cardSpanInner.append("_"); // how to insert space here?
 
-            // // left arrow drawing
-            // let specialClassDiv = document.createElement("div");
-            // cardSpanInner.append(specialClassDiv);
-            // specialClassDiv.classList.add("left-arrow-container");
-            // let innerSpecialClassDiv = document.createElement("div");
-            // specialClassDiv.append(innerSpecialClassDiv);
-            // innerSpecialClassDiv.classList.add("arrow-body");
+            // left arrow drawing
+            let aspecialClassDiv = document.createElement("div");
+            cardSpanInner.append(aspecialClassDiv);
+            aspecialClassDiv.classList.add("left-arrow-container");
+            let ainnerSpecialClassDiv = document.createElement("div");
+            aspecialClassDiv.append(ainnerSpecialClassDiv);
+            ainnerSpecialClassDiv.classList.add("arrow-body");
 
-            // let evenInnerSpan = document.createElement("span");
-            // innerSpecialClassDiv.append(evenInnerSpan);
-            // evenInnerSpan.classList.add("arrow-head");
+            let aevenInnerSpan = document.createElement("span");
+            ainnerSpecialClassDiv.append(aevenInnerSpan);
+            aevenInnerSpan.classList.add("arrow-head");
 
-            // // right arrow drawing
-            // let specialClassDiv2 = document.createElement("div");
-            // cardSpanInner.append(specialClassDiv);
-            // specialClassDiv2.classList.add("right-arrow-container");
-            // let innerSpecialClassDiv = document.createElement("div");
-            // specialClassDiv2.append(innerSpecialClassDiv);
-            // innerSpecialClassDiv.classList.add("arrow-body2");
+            // right arrow drawing
+            let bspecialClassDiv = document.createElement("div");
+            cardSpanInner.append(bspecialClassDiv);
+            bspecialClassDiv.classList.add("right-arrow-container");
+            let binnerSpecialClassDiv = document.createElement("div");
+            bspecialClassDiv.append(binnerSpecialClassDiv);
+            binnerSpecialClassDiv.classList.add("arrow-body2");
 
-            // let evenInnerSpan = document.createElement("span");
-            // innerSpecialClassDiv.append(evenInnerSpan);
-            // evenInnerSpan.classList.add("arrow-head");
-
-            // // final span
-            // let finalSpan = document.createElement("span");
-            // cardSpanInner.append(finalSpan);
+            let bevenInnerSpan = document.createElement("span");
+            binnerSpecialClassDiv.append(bevenInnerSpan);
+            bevenInnerSpan.classList.add("arrow-head");
 
             break;
           case 12:
